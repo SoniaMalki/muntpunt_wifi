@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Exec=/usr/bin/wifi_muntpunt/wifi_muntpunt_bash_script_connect.sh
+Exec=/usr/local/bin/wifi_muntpunt/wifi_muntpunt_bash_script_connect.sh
 Name=WiFi Muntpunt
 Icon=wifi_muntpunt_icon
 GenericName=WiFi Muntpunt

@@ -1,0 +1,34 @@
+#!/bin/bash
+# Inclure la librairie debconf
+. /usr/share/debconf/confmodule
+
+# Demander les informations à l'utilisateur
+db_input critical wifi_muntpunt/username || true
+db_input high wifi_muntpunt/password || true
+db_go
+
+# Récupérer les réponses et les traiter
+db_get wifi_muntpunt/username
+username=$RET
+db_get wifi_muntpunt/password
+password=$RET
+
+# Sauvegarde des credentials
+INSTALL_PATH="/usr/local/bin/wifi_muntpunt"
+echo -e "username=$username\npassword=$password" > "$INSTALL_PATH/credentials.txt"
+
+
+echo "Configuration completed successfully."
+
+
+# Installation des dépendances Python
+pip3 install requests chardet --quiet
+
+# Permissions nécessaires
+chmod +x /usr/local/bin/wifi_muntpunt/*
+#gio set /usr/share/applications/wifi_muntpunt.desktop metadata::trusted true
+#gio set /usr/share/applications/wifi_muntpunt_tray.desktop metadata::trusted true
+
+echo "Wifi Muntpunt installed successfully."
+
+db_purge

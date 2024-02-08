@@ -1,9 +1,46 @@
 import requests
 import urllib.request
 import os
+import shutil
+
 credential = {}
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
+
+
+# Define the message to be centered
+message = "Welcome to Wifi Muntpunt connect!"
+message2 =  len(message)*"*" 
+
+# Get the width of the terminal
+terminal_width = shutil.get_terminal_size().columns
+
+# Calculate the amount of whitespace needed to center the message
+padding = (terminal_width - len(message)) // 2
+
+# Construct the centered message with padding
+centered_message = " " * padding + message
+centered_message2 = " " * padding + message2
+
+print(centered_message)
+print(centered_message2)
+
+welcome_message = """
+To install the app in the tray for launch, please run the following command:
+    /usr/local/bin/wifi_muntpunt/install_tray_at_launch.sh
+
+To reconfigure the credentials, please run this script from the terminal:
+    sudo dpkg-reconfigure wifi-muntpunt
+"""
+
+# Create the separator line with the same width as the terminal
+separator = '-' * terminal_width
+
+# Concatenate the centered welcome message with the separator
+message_with_separator = welcome_message.strip() + '\n\n' + separator
+
+print(message_with_separator)
+# Add your follow-up message here
 
 
 with open(current_directory+"/credentials.txt", "r") as credential_file:

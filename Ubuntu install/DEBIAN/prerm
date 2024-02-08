@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Remove credential.txt if it exists
+if [ -f /usr/local/bin/wifi_muntpunt/credential.txt ]; then
+    rm /usr/local/bin/wifi_muntpunt/credential.txt
+fi
+
+# Remove the directory if it is empty after removing credential.txt
+if [ -d /usr/local/bin/wifi_muntpunt ] && [ -z "$(ls -A /usr/local/bin/wifi_muntpunt)" ]; then
+    rmdir /usr/local/bin/wifi_muntpunt
+fi
+
+# End of the prerm script

@@ -1,0 +1,8 @@
+Template: wifi_muntpunt/username
+Type: string
+Description: Please enter your Wifi username (First name followed by a space then last name):
+
+Template: wifi_muntpunt/password
+Type: password
+Description: Please enter your password (your national ID number or number on Muntpunt card):
+

@@ -1,0 +1,9 @@
+Package: wifi-muntpunt
+Version: 1.0
+Section: net
+Priority: optional
+Architecture: all
+Depends: python3, python3-pip, gir1.2-appindicator3-0.1
+Maintainer: Malki Sonia <soniamalki@ulb.be>
+Description: Wifi Muntpunt connection utility
+ A utility to connect to Wifi Muntpunt with a GUI for Ubuntu.
